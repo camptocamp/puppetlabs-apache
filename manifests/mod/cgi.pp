@@ -5,6 +5,8 @@ class apache::mod::cgi {
     default: {
       if defined(Class['::apache::mod::itk']) {
         Class['::apache::mod::itk'] -> Class['::apache::mod::cgi']
+      } elsif defined(Class['::apache::mod::event']) {
+        Class['::apache::mod::event'] -> Class['::apache::mod::cgi']
       } elsif defined(Class['::apache::mod::peruser']) {
         Class['::apache::mod::peruser'] -> Class['::apache::mod::cgi']
       } else {
